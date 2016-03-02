@@ -1,25 +1,27 @@
-var city = $('#city-type').val();
-var city = ['NYC', 'LA', 'SF', 'ATX', 'SYD'];
+var cities = ['NYC', 'LA', 'SF', 'ATX', 'SYD'];
+var userSelect;
 
- for (var i = 0; i < city.length; i++ ) {
-    $('#city-options').append('<option>' + city[i] + '<option>');
+ for (var i = 0; i < cities.length; i++ ) {
+  console.log( cities[i] );
+    $('#city-options').append('<option val="' + cities[i]+ '"> '+cities[i]+' </option>')
  }
 
      $('form').on('change', '#options', function(){
       console.log();
-      var city = $('#city-options').val()
-       if (city == "NYC" || city =="ny"|| city =="nyc" || city == "New York" || city == "New York City" || city == "new york city"){ // How do I do other options: ny, New york, etc?
-          $('body').attr('class','nyc');
-        } else if (city == "SF" || city == "sf" || city =="san fran" || city == "San Fran" || city == "San Francisco") {      
+        userSelect = $('#city-options').find("options:selected").val();
+        console.log( userSelect );
+       if (userSelect == " NYC " ){ // How do I do other options: ny, New york, etc?
+            $('body').addClass('nyc');
+        } else if (userSelect == "SF") {      
            $('body').attr('class','sf');
-        } else if (city == "LA" || city =="la" || city =="los angeles" || city == "Los Angeles" || city == "LAX") {      
+        } else if (userSelect == "LA") {      
            $('body').attr('class','la');
-        } else if (city == "AUS" || city =="austin" || city == "Austin" || city == "Austin Texas" || city == "ATX") {      
+        } else if (userSelect == "AUS") {      
            $('body').attr('class','austin');
-        } else if (city == "SYD" || city =="sydney" || city == "Sydney") {      
+        } else if (userSelect == "SYD") {      
            $('body').attr('class','sydney');
        }
      });
 
 
-
+// $('#userSelect-options').append('<option val="' +cities[i]+ '"> '+cities[i]+' </option>')
